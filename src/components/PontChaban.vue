@@ -3,15 +3,15 @@
 
 		
 		<div class="preview">
-			<div>Prochaine Fermeture dans</div>
-			<div>3 jours 2 heures et 32 minutes</div>
+			<div>Prochaine Fermeture</div>
+			<div>le {{ nextClosing }}</div>
 		</div>
 		<div class="head" @click="showYear()" :class="{ 'hide' : !hide}">
 			<i class="fa-solid fa-chevron-left" ></i>
 			<div>{{ year }}</div>
 		</div>
 		<div class="month" :class="{ 'hide' : !hide}">
-			<h3 :class="{ 'red': month === today.getMonth() && year === today.getFullYear()} ">{{ new Date(year, month, 1).toLocaleString('fr-FR', {month: "long"}) }} {{ year }}</h3>
+			<h3 :class="{ 'red': month === today.getMonth() && year === today.getFullYear()} ">{{ new Date(year, month, 1).toLocaleString('fr-FR', {month: "long"}) }}</h3>
 			<div class="nav">
 			<i class="fa-solid fa-chevron-left" @click="previousMonth()"></i>
 			<span style="color: turquoise; cursor: pointer;" @click="goToday()">Aujourd'hui</span>
@@ -21,9 +21,6 @@
 		<div class="tryptique" :class="{ 'hide' : !hide}">
 		<Calendrier @clik-on-day="setJour" v-touch:swipe.right="previousMonth" v-touch:swipe.left="nextMonth" :year="year" :month="month" :day="day" :pont="pont"/>
 		</div>
-		
-
-
 		<div class="month" :class="{ 'hide' : hide}">
 			<h3 :class="{ 'hide' : hide}">{{ year }}</h3>
 			<div class="nav">
@@ -32,9 +29,6 @@
 			<i class="fa-solid fa-chevron-right" @click="nextYear()"></i>
 			</div>
 		</div>
-
-
-
 		<div class="year-view" :class="{ 'hide' : hide}" v-touch:swipe.right="previousYear" v-touch:swipe.left="nextYear">
 			<div v-for="i in 12" :key="i" class="min-month"  @click="showMonth(i)">
 				<span :class="{ 'red': i - 1 === today.getMonth() && year === today.getFullYear()}">{{ new Date(year, i-1).toLocaleString('fr-FR', {month: "long"}) }}</span>
@@ -68,14 +62,15 @@ export default {
 			year: new Date().getFullYear(),
 			month: new Date().getMonth(),
 			hide: true,
-			day: new Date().getDate()
+			day: new Date().getDate(),
+			nextClosing: String
 		}
 	},
 	async created() {
 		const response = await fetch(`https://opendata.bordeaux-metropole.fr/api/explore/v2.1/catalog/datasets/previsions_pont_chaban/records?limit=100`);
 		const result = await response.json();
 		this.pont = result.results;
-
+		this.getNextClosing();
 		/* this.pont = this.pont.filter((item) => {
 			return this.returnFormatedDate(new Date(item.date_passage)) >= this.returnFormatedDate(this.today);
 		}); */
@@ -153,6 +148,27 @@ export default {
 			this.month = this.today.getMonth();
 			this.year = this.today.getFullYear();
 			this.day = this.today.getDate();
+		},
+		getNextClosing(){
+			const infos = this.pont.find((item) => {
+							if(item.date_passage === this.returnFormatedDateToDisplay(this.today)
+								 && (this.today) - (item.fermeture_a_la_circulation.slice(0,2) + item.fermeture_a_la_circulation.slice(3)) < 0){
+								return true;
+							}
+							if(item.date_passage > this.returnFormatedDateToDisplay(this.today)){
+								return true;
+							}
+						 	
+								});
+			const date = new Date(infos.date_passage);
+			const heure = infos.fermeture_a_la_circulation;
+			this.nextClosing = date.toLocaleDateString('fr-FR', { weekday: "long", day: "numeric", month: "long"});
+			this.nextClosing += " à " + heure;
+		},
+		returnFormatedHour(date){
+			const hours = date.getHours();
+			const minutes = date.getMinutes();
+			return hours + ":" + minutes;
 		}
 	}
 
