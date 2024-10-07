@@ -3,8 +3,8 @@
 
 		
 		<div class="preview">
-			<div>Prochaine Fermeture</div>
-			<div>le {{ nextClosing }}</div>
+			<div>Prochaine Fermeture :</div>
+			<div>{{ nextClosing }}</div>
 		</div>
 		<div class="head" @click="showYear()" :class="{ 'hide' : !hide}">
 			<i class="fa-solid fa-chevron-left" ></i>
@@ -197,9 +197,9 @@ export default {
 	border-radius: 10px;
 	background-color: white;
 	color: rgb(32, 36, 41);
-	padding: 15px;
+	padding: 20px;
 	margin: 20px 5px;
-	font-weight: 600;
+	font-weight: 700;
 	gap: 1rem;
 }
 
@@ -219,6 +219,7 @@ export default {
 	justify-content: center;
 	gap: 1.5rem;
 	font-size: 1rem;
+	margin: 30px;
 }
 
 .head{
