@@ -31,7 +31,7 @@
 		</div>
 		<div class="year-view" :class="{ 'hide' : hide}" v-touch:swipe.right="previousYear" v-touch:swipe.left="nextYear">
 			<div v-for="i in 12" :key="i" class="min-month"  @click="showMonth(i)">
-				<span :class="{ 'red': i - 1 === today.getMonth() && year === today.getFullYear()}">{{ new Date(year, i-1).toLocaleString('fr-FR', {month: "long"}) }}</span>
+				<span :class="{ 'turquoise': i - 1 === today.getMonth() && year === today.getFullYear()}">{{ new Date(year, i-1).toLocaleString('fr-FR', {month: "long"}) }}</span>
 				<MinCalendrier @clik-on-day="setJour" :year="year" :month="i-1" :pont="pont"/>
 			</div>
 		</div>
@@ -269,8 +269,9 @@ i{
 	display: none;
 }
 
-.red{
+.turquoise{
     color: turquoise;
+	font-weight: 600;
 }
 
 </style>
