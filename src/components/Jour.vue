@@ -28,7 +28,6 @@ export default {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 25vh;
     align-items: center;
     justify-content: center;
     border-radius: 10px;
@@ -36,7 +35,11 @@ export default {
 	background-color: white;
 	color: rgb(32, 36, 41);
 	margin: 30px;
+    padding: 20px;
+}
 
+h4{
+    margin: 10px 0 10px 0;
 }
 
 </style>

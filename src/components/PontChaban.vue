@@ -25,7 +25,7 @@
 			<h3 :class="{ 'hide' : hide}">{{ year }}</h3>
 			<div class="nav">
 			<i class="fa-solid fa-chevron-left" @click="previousYear()"></i>
-			<span style="color: turquoise; cursor: pointer;" @click="goToday()">Aujourd'hui</span>
+			<span style="color: turquoise; cursor: pointer;" @click="goToday()">Cette année</span>
 			<i class="fa-solid fa-chevron-right" @click="nextYear()"></i>
 			</div>
 		</div>
@@ -180,7 +180,7 @@ export default {
 .pont-chaban{
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;
+	align-items: center;
 	justify-content: flex-start;
 	text-align: center;
 	max-width: 500px;
@@ -224,7 +224,9 @@ export default {
 
 .head{
 	display: flex;
+	width: 100%;
 	align-items: baseline;
+	justify-content: flex-start;
 	cursor: pointer;
 	gap: 10px;
 	color: turquoise;

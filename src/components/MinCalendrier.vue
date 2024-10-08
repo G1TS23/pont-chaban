@@ -115,32 +115,10 @@ export default {
     margin-top: 3px;
 }
 
-.dot{
-    margin-top: -3px;
-    padding: 0;
-    font-size: 1rem;
-    font-weight: 900;
-    color: turquoise;
-}
-
-.dot-hidden{
-    margin-top: -3px;
-    padding: 0;
-    font-size: 1rem;
-    font-weight: 900;
-    color: rgb(32, 36, 41);
-}
-
 .week-end{
     color: grey;
 }
 
-.week-day{
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    width: 100%;
-}
 
 h3{
     margin: 0;
@@ -165,7 +143,6 @@ span{
     align-items: center;
     justify-content: center;
     width: 70%;
-    /*height: 40px;*/
     aspect-ratio: 1;
     text-align: center;
     font-size: 0.7rem;
@@ -179,7 +156,6 @@ span{
     align-items: center;
     justify-content: center;
     width: 70%;
-    /*height: 40px;*/
     aspect-ratio: 1;
     text-align: center;
     font-size: 0.7rem;
@@ -193,14 +169,5 @@ span{
     color: turquoise;
 }
 
-.highlight{
-    background-color: white;
-    color: rgb(32, 36, 41);
-}
-
-.highlight-today{
-    background-color: turquoise;
-    color: white;
-}
 
 </style>
