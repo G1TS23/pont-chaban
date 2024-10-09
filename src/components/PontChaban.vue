@@ -1,7 +1,30 @@
 <template>
+	<div class="pont-chaban" v-if="pont == null">
+		<div class="preview loading">
+			<div>Récupérations des</div>
+			<div>informations de fermeture</div>
+		</div>
+		<div class="head">
+			<i class="fa-solid fa-chevron-left" ></i>
+			<div>{{ year }}</div>
+		</div>
+		<div class="month">
+			<h3 :class="{ 'red': month === today.getMonth() && year === today.getFullYear()} ">{{ new Date(year, month, 1).toLocaleString('fr-FR', {month: "long"}) }}</h3>
+			<div class="nav">
+			<i class="fa-solid fa-chevron-left" @click="previousMonth()"></i>
+			<span style="color: turquoise; cursor: pointer;" @click="goToday()">Aujourd'hui</span>
+			<i class="fa-solid fa-chevron-right" @click="nextMonth()"></i>
+			</div>
+		</div>
+		<div class="tryptique">
+			<SkeletonCalendrier :year="year" :month="month" :day="day" />
+		</div>
+		<div class="preview loading">
+			<div>Récupérations des</div>
+			<div>informations de fermeture</div>
+		</div>
+	</div>
 	<div class="pont-chaban" v-if="pont != null">
-
-		
 		<div class="preview">
 			<div>Prochaine Fermeture :</div>
 			<div>{{ nextClosing }}</div>
@@ -46,13 +69,15 @@ import Calendrier from "@/components/Calendrier.vue"
 import MinCalendrier from "@/components/MinCalendrier.vue"
 import Jour from "@/components/Jour.vue"
 import Header from "@/components/Header.vue"
+import SkeletonCalendrier from "@/components/SkeletonCalendrier.vue"
 
 export default {
 	components: {
 		Calendrier,
 		MinCalendrier,
 		Jour,
-		Header
+		Header,
+		SkeletonCalendrier
   },
 	data() {
 		return {
@@ -179,6 +204,7 @@ export default {
 
 .pont-chaban{
 	display: flex;
+	width: 100%;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
@@ -272,6 +298,20 @@ i{
 .turquoise{
     color: turquoise;
 	font-weight: 600;
+}
+
+.loading{
+	animation: loading .5s infinite ease-in-out;
+}
+
+@keyframes loading {
+	0% {
+		background-color: lightgrey;
+	}
+	50% {
+		background-color: white;
+	}
+	
 }
 
 </style>
