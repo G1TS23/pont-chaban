@@ -212,6 +212,7 @@ span{
 
 .today{
     color: turquoise;
+    font-weight: 600;
 }
 
 .highlight{
