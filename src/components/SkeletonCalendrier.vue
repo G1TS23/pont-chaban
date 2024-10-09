@@ -47,8 +47,6 @@ export default {
         } else {
             this.firstDay = day;
         }
-        /* this.displayDay = this.firstDay;
-        this.returnDayToDisplay(this.displayDay); */
     },
     data(){
         return{

@@ -95,10 +95,6 @@ export default {
 		const response = await fetch(`https://opendata.bordeaux-metropole.fr/api/explore/v2.1/catalog/datasets/previsions_pont_chaban/records?limit=100`);
 		const result = await response.json();
 		this.pont = result.results;
-		
-		/* this.pont = this.pont.filter((item) => {
-			return this.returnFormatedDate(new Date(item.date_passage)) >= this.returnFormatedDate(this.today);
-		}); */
 
 		this.pont.sort((a, b) => {
 			if(a.date_passage < b.date_passage){

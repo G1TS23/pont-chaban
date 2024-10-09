@@ -57,9 +57,6 @@ export default {
         return{
             today: new Date(),
             firstDay: new Date(this.year, this.month, 1).getDay(),
-            displayYear: new Date().getFullYear(),
-            displayMonth: new Date().getMonth(),
-            displayDay: new Date().getDate() + 1,
             highlight: new Date().getDay()
         }
     },
@@ -95,9 +92,6 @@ export default {
                 return true;
             }
             return false;
-        },
-        swipe(event){
-            console.log(event.identifier);
         }
     }
 }

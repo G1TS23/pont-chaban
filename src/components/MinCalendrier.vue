@@ -36,8 +36,6 @@ export default {
         } else {
             this.firstDay = day;
         }
-        /* this.displayDay = this.firstDay;
-        this.returnDayToDisplay(this.displayDay); */
     },
     data(){
         return{
@@ -70,17 +68,7 @@ export default {
 			const month = String(date.getMonth() + 1).padStart(2, '0');
 			const day = String(date.getDate()).padStart(2, '0');
 			return `${year}-${month}-${day}`;
-		},
-        hasClosing(i){
-
-            const formatedDay = this.returnFormatedDateToDisplay(new Date(this.year, this.month, i));
-            const result = this.pont.find((item) => item.date_passage === formatedDay);
-            
-            if (result != null){
-                return true;
-            }
-            return false;
-        }
+		}
     }
 }
 
