@@ -152,7 +152,7 @@ export default {
 		getNextClosing(){
 			const infos = this.pont.find((item) => {
 							if(item.date_passage === this.returnFormatedDateToDisplay(this.today)
-								 && (this.today) - (item.fermeture_a_la_circulation.slice(0,2) + item.fermeture_a_la_circulation.slice(3)) < 0){
+								 && (this.today) - (item.fermeture_a_la_circulation.slice(0,2) + item.fermeture_a_la_circulation.slice(3)) > 0){
 								return true;
 							}
 							if(item.date_passage > this.returnFormatedDateToDisplay(this.today)){
