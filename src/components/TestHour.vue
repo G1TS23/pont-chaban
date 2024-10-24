@@ -19,7 +19,7 @@ export default {
             this.hours = new Date().getHours();
             this.minutes = String(new Date().getMinutes()).padStart(2, '0');
             this.seconds = String(new Date().getSeconds()).padStart(2, '0');
-        }, 1);
+        }, 100);
     }
 }
 
