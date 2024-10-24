@@ -30,4 +30,12 @@ export default {
 .hour{
     font-family: 'Roboto', monospace;
 }
+
+@media screen and (max-width: 430px) {
+
+    i{
+        display: none;
+    }
+    
+}
 </style>
