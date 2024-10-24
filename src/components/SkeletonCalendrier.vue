@@ -150,7 +150,7 @@ span{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70%;
+    width: 50%;
     /*height: 40px;*/
     aspect-ratio: 1;
     text-align: center;
@@ -159,13 +159,14 @@ span{
     margin: 0;
     padding: 0;
     cursor: pointer;
+    font-weight: 600;
 }
 
 .hidden{
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 70%;
+    width: 50%;
     /*height: 40px;*/
     aspect-ratio: 1;
     text-align: center;

@@ -171,16 +171,21 @@ export default {
 			this.day = this.today.getDate();
 		},
 		getNextClosing(){
+			
+			const todayHour = this.returnFormatedHour(this.today);
+			console.log("today : ", todayHour);
 			const infos = this.pont.find((item) => {
-							if(item.date_passage === this.returnFormatedDateToDisplay(this.today)
-								 && this.returnFormatedDateToDisplay(this.today) - (item.fermeture_a_la_circulation.slice(0,2) + item.fermeture_a_la_circulation.slice(3)) > 0){
-								return true;
-							}
-							if(item.date_passage > this.returnFormatedDateToDisplay(this.today)){
-								return true;
-							}
-						 	
-								});
+				const closingHour = item.fermeture_a_la_circulation.slice(0,2) + item.fermeture_a_la_circulation.slice(3);
+				
+				if(item.date_passage === this.returnFormatedDateToDisplay(this.today) && todayHour - closingHour < 0){
+					console.log(todayHour - closingHour);
+					return true;
+				}
+				if(item.date_passage > this.returnFormatedDateToDisplay(this.today)){
+					return true;
+				}
+			});
+
 			const date = new Date(infos.date_passage);
 			const heure = infos.fermeture_a_la_circulation;
 			this.nextClosing = date.toLocaleDateString('fr-FR', { weekday: "long", day: "numeric", month: "long"});
@@ -189,7 +194,7 @@ export default {
 		returnFormatedHour(date){
 			const hours = date.getHours();
 			const minutes = date.getMinutes();
-			return hours + ":" + minutes;
+			return hours + "" + minutes;
 		}
 	}
 

@@ -154,7 +154,8 @@ span{
 }
 
 .today{
-    color: turquoise;
+    background-color: turquoise;
+    color: rgb(32, 36, 41);
 }
 
 
