@@ -21,6 +21,7 @@ import TestHour from "@/components/TestHour.vue"
     font-weight: 600;
     position: sticky;
     top: 0;
+    background-color: rgb(32, 36, 41) ;
 }
 
 </style>
