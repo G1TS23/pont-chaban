@@ -19,6 +19,8 @@ import TestHour from "@/components/TestHour.vue"
     justify-content: space-between;
     font-size: 1rem;
     font-weight: 600;
+    position: sticky;
+    top: 0;
 }
 
 </style>
