@@ -1,30 +1,20 @@
-# pont-chaban
+# 🌉 Fermeture Pont Chaban-Delmas
 
-This template should help get you started developing with Vue 3 in Vite.
+Site qui centralise et affiche, sous forme de **calendrier**, les fermetures programmées du pont Jacques-Chaban-Delmas à Bordeaux (fermé à la circulation lors du passage de bateaux).
 
-## Recommended IDE Setup
+🔗 **Démo en ligne** : [pont-chaban.netlify.app](https://pont-chaban.netlify.app)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🎯 Objectif
 
-## Customize configuration
+Faciliter la consultation des horaires de fermeture du pont pour les usagers bordelais, dans un format calendrier clair et rapide à consulter.
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+## 🛠️ Stack
 
-## Project Setup
+`Vue.js` · `Vite` · déployé sur `Netlify`
 
-```sh
+## 🚀 Lancer le projet
+
+```bash
 npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
 npm run dev
 ```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-# pont-chaban
