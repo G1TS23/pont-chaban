@@ -15,9 +15,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fermeture Pont Chaban</title>
+    <style>
+      .site-credit {
+        position: fixed;
+        right: 0.75rem;
+        bottom: 0.5rem;
+        z-index: 1000;
+        font-family: "Montserrat", sans-serif;
+        font-size: 0.72rem;
+        opacity: 0.6;
+      }
+      .site-credit a { color: #fff; text-decoration: none; }
+      .site-credit a:hover { opacity: 1; text-decoration: underline; }
+    </style>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <footer class="site-credit">
+      <a href="https://olivier.falahi.org" target="_blank" rel="noopener">Un projet d'Olivier Falahi ↗</a>
+    </footer>
   </body>
 </html>
