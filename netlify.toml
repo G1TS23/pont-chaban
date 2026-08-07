@@ -1,0 +1,12 @@
+# Configuration de déploiement Netlify
+# Site statique Vite : `vite build` génère dist/, servi tel quel.
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # Vite 8 exige Node ^20.19.0 || >=22.12.0. Sans cette valeur, Netlify utilise
+  # sa version par défaut, qui peut changer sans prévenir et casser le build.
+  # Garder aligné avec .nvmrc et le champ `engines` de package.json.
+  NODE_VERSION = "24.18.0"

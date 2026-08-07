@@ -1,0 +1,17 @@
+version: 2
+
+updates:
+  # Les 22 alertes de l'issue #6 venaient d'un seul retard (Vite 5 -> 8) laissé
+  # s'accumuler faute de suivi. Ce fichier existe pour que ça ne se reproduise
+  # pas : les mineures et patches arrivent groupées en une PR mensuelle, les
+  # majeures séparément puisqu'elles demandent une relecture.
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    groups:
+      minor-and-patch:
+        update-types:
+          - minor
+          - patch
